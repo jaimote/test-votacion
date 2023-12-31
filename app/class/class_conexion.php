@@ -14,8 +14,8 @@ class Conexion {
         try{
             $this->conector = new mysqli($this->servidor, $this->usuario, $this->clave, $this->bd, $this->puerto);
         }catch(Exception $e){
+            $this->conector = 'Error de conexión';
             $error = $e->getMessage();
-            die($error);
         }
     }
 
@@ -35,6 +35,29 @@ class Conexion {
         }catch(Exception $e){
             return $e->getMessage();
         }
+    }
+
+    public function execute($sql){
+        try{
+            if ($res = mysqli_query($this->conector, $sql)) {
+                return array(
+                    "mensaje" => "Se ejecuto correctamente",
+                    "error" => false,
+                );
+            } else {
+                throw new Exception($this->conector->error);
+            }
+        }catch(Exception $e){
+            return array(
+                "mensaje" => $e->getMessage(),
+                "error" => $e->getMessage(),
+            );
+        }
+    }
+
+
+    public function __destroy(){
+        mysqli_close($this->conector);
     }
 }
 

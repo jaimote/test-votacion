@@ -10,3 +10,7 @@
     padding-bottom: 20px;
     height: 30px;
 }
+.error {
+    color: red;
+    font-size: 11px;
+}

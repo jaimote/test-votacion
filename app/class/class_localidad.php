@@ -9,16 +9,16 @@ class Localidad {
 
     public function getRegiones(){
         $sql = 'SELECT id, nombre FROM region ORDER BY nombre ASC';
-        $regiones = $this->conn->get($sql);
+        $resultado = $this->conn->get($sql);
 
-        return $regiones;
+        return $resultado;
     }
 
     public function getComunas($region){
         $sql = 'SELECT id, nombre FROM comuna WHERE region_id = '.$region.' ORDER BY nombre ASC';
-        $comunas = $this->conn->get($sql);
+        $resultado = $this->conn->get($sql);
 
-        echo json_encode($comunas);
+        echo json_encode($resultado);
     }
 }
 ?>

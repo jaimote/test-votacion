@@ -13,40 +13,40 @@
 <body>
     <div class="container">
         <span class="titulo titulo-superior">FORMULARIO DE VOTACIÓN</span>
-        <form action="" onsubmit="return formVotacion()">
+        <form id="formVotacion" action="" onsubmit="return formVotacion()">
             <table>
                 <tr>
                     <td>Nombre y Apellido</td>
                     <td>
-                        <input type="text" name="nombre" id="nombre">
+                        <input type="text" class="form-control" name="nombre" id="nombre">
                         <div class="error"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>Alias</td>
                     <td>
-                        <input type="text" name="alias" id="alias">
+                        <input type="text" class="form-control" name="alias" id="alias">
                         <div class="error"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>RUT</td>
                     <td>
-                        <input type="text" name="rut" id="rut">
+                        <input type="text" class="form-control" name="rut" id="rut">
                         <div class="error"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>Email</td>
                     <td>
-                        <input type="text" name="email" id="email">
+                        <input type="text" class="form-control" name="email" id="email">
                         <div class="error"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>Región</td>
                     <td>
-                        <select name="region" id="region">
+                        <select class="form-control" name="region" id="region">
                             <option value="">(seleccionar)</option>
                             <?php
                             foreach($regiones as $key => $value){
@@ -54,26 +54,26 @@
                             }
                             ?>
                         </select>
+                        <div class="error"></div>                        
                     </td>
                 </tr>
                 <tr>
                     <td>Comuna</td>
                     <td>
-                        <select name="comuna" id="comuna">
+                        <select class="form-control" name="comuna" id="comuna">
                             <option value="">(seleccionar)</option>
                         </select>
+                        <div class="error"></div>                        
                     </td>
                 </tr>
                 <tr>
                     <td>Candidato</td>
                     <td>
-                        <select name="candidato" id="candidato">
+                        <select class="form-control" name="candidato" id="candidato">
                             <option value="">(seleccionar)</option>
                             <?php
                             foreach($candidatos as $key => $value){
-                                ?>
-                            <option value="">(seleccionar)</option>
-                            <?php
+                                echo "<option value=".$value['id'].">".$value["apellidos"].", ".$value["nombre"]."</option>";
                             }
                             ?>
                         </select>
@@ -83,10 +83,11 @@
                 <tr>
                     <td>Como se enteró de nosotros</td>
                     <td>
-                        <input type="checkbox" id="web"><label for="web">Web</label>
-                        <input type="checkbox" id="tv"><label for="tv">TV</label>
-                        <input type="checkbox" id="rrss"><label for="rrss">Redes Sociales</label>
-                        <input type="checkbox" id="amigo"><label for="amigo">Amigo</label>
+                        <input type="checkbox" value="web" name="nosotros" id="web"><label for="web">Web</label>
+                        <input type="checkbox" value="tv" name="nosotros" id="tv"><label for="tv">TV</label>
+                        <input type="checkbox" value="rrss" name="nosotros" id="rrss"><label for="rrss">Redes Sociales</label>
+                        <input type="checkbox" value="amigo" name="nosotros" id="amigo"><label for="amigo">Amigo</label>
+                        <div class="error"></div>                        
                     </td>
                 </tr>
             </table>

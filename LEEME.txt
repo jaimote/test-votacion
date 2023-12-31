@@ -1,0 +1,14 @@
+Versiones:
+    PHP: "PHP 7.4.33"
+    DB_MSQL: "10.1.31-MariaDB"
+Pasos: 
+    - Descargar desde la URL de github los fuentes en la carpeta del servicio que estén utilizando, ya sea, xampp, wampp, laragon, nginx, apache o iis que tengan configurado en la máquina
+    - En la carpeta de los fuentes esta la carpeta SQL con el archivo votacion.sql el que deben de importar y asociar a un usuario con privilegios en una base de datos con el nombre "votacion"
+    - Ya cargada la base de datos, deben modificar en el archivo de los fuentes ruta "app/class_conexion" las variables, con los datos de conexión que tengan en su servidor de base de datos
+        variables:
+            -- $usuario
+            -- $clave
+            -- $bd
+            -- $puerto
+            -- $servidor
+    - Si tienen el servicio arriba con los fuentes en el directorio correspondiente del proyecto, debes acceder a la url de ejemplo http://localhost/votacion, para acceder a la aplicación de votación
